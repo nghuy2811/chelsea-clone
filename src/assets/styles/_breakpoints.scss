@@ -1,0 +1,17 @@
+@use "sass:map";
+
+@mixin media-up($value, $breakpoints: $breakpoints) {
+  $min: map.get($breakpoints, $value);
+
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin media-down($value, $breakpoints: $breakpoints) {
+  $max: map.get($breakpoints, $value);
+
+  @media (max-width: $max) {
+    @content;
+  }
+}
