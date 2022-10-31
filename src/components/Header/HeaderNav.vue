@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { computed } from "vue";
+import { useNavMorePopupStore } from "../../stores/popupStores";
 
-const isOpenMore = ref(false);
+const navMorePopupStore = useNavMorePopupStore();
 
-const handleClickMore = () => {
-  isOpenMore.value = !isOpenMore.value;
-};
+const isOpenMore = computed(() => {
+  return navMorePopupStore.isShow;
+});
+
+const handleClickMore = () => navMorePopupStore.togglePopup();
 </script>
 
 <template>

@@ -7,11 +7,13 @@
       </div>
     </div>
   </header>
+  <NavMorePopup />
 </template>
 
 <script setup lang="ts">
 import HeaderSideBanner from "./HeaderSideBanner.vue";
 import HeaderNav from "./HeaderNav.vue";
+import NavMorePopup from "../Popup/NavMorePopup.vue";
 </script>
 
 <style module>
