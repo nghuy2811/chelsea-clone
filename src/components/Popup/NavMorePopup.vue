@@ -1,17 +1,30 @@
 <script lang="ts" setup>
 import { useNavMorePopupStore } from "../../stores/popupStores";
 
+import NavOverlay from "../Nav/NavOverlay.vue";
+
 const navMorePopupStore = useNavMorePopupStore();
+
+document.addEventListener("keydown", (event: KeyboardEvent) => {
+  if (navMorePopupStore.isShow && event.code === "Escape") {
+    navMorePopupStore.togglePopup();
+  }
+});
 </script>
 
 <template>
-  <div class="overlay" :class="{ isActive: navMorePopupStore.isShow }">
+  <div
+    tabindex="0"
+    class="overlay"
+    :class="{ isActive: navMorePopupStore.isShow }"
+  >
     <div class="close-box" @click="navMorePopupStore.togglePopup">
       <div class="close-icon">
         <span></span>
         <span></span>
       </div>
     </div>
+    <NavOverlay />
   </div>
 </template>
 
@@ -24,6 +37,7 @@ const navMorePopupStore = useNavMorePopupStore();
   visibility: hidden;
   transform: scale(0.7);
   transition: all 0.1s ease-in-out;
+  overflow: auto;
 
   &.isActive {
     display: block;

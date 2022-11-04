@@ -12,6 +12,7 @@ export default defineConfig({
         @import "./src/assets/styles/_variables.scss";
         @import "./src/assets/styles/_fonts.scss";
         @import "./src/assets/styles/_breakpoints.scss";
+        @import "./src/assets/styles/_animation.scss";
       `,
       },
     },
