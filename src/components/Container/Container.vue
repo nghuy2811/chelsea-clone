@@ -1,10 +1,16 @@
 <template>
-  <div :class="$style['container-wrapper']">
+  <div :class="[$style['container-wrapper'], childClass]">
     <div class="container">
       <slot />
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+defineProps({
+  childClass: String || undefined,
+});
+</script>
 
 <style lang="scss" module>
 .container-wrapper {
@@ -16,7 +22,7 @@
     padding-right: 60px;
   }
 
-  @include media-down(desktop) {
+  @include media-up(desktop) {
     padding-left: 82px;
     padding-right: 82px;
   }

@@ -1,13 +1,18 @@
 <template>
   <Container>
     <div :class="$style.wrapper">
-      <div :class="$style.nav">
+      <div v-if="isOpeningPopup" :class="$style.nav">
         <div :class="$style.mainNavList" @mouseleave="isHoveringItem = false">
           <ul :class="$style.mainList">
             <li
               v-for="(item, index) in navMoreItems"
               :class="$style.mainNavItem"
               @mouseover="selectHoveringIndex(index)"
+              :style="{
+                animation: `slideInTop 1s ease-in-out ${
+                  index * 100
+                }ms forwards`,
+              }"
             >
               <RouterLink
                 to="#"
@@ -58,6 +63,10 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
 import Container from "../Container/Container.vue";
+
+const props = defineProps({
+  isOpeningPopup: Boolean,
+});
 
 const hoveringIndex = ref<undefined | number>(undefined);
 const isHoveringItem = ref(false);
@@ -135,11 +144,20 @@ const selectHoveringIndex = (index: number) => {
   hoveringIndex.value = index;
 };
 
-watch(isHoveringItem, () => {
+watch([isHoveringItem], () => {
   if (isHoveringItem.value === false) {
     hoveringIndex.value = undefined;
   }
 });
+
+watch(
+  () => props.isOpeningPopup,
+  () => {
+    if (props.isOpeningPopup === false) {
+      hoveringIndex.value = undefined;
+    }
+  }
+);
 </script>
 
 <style lang="scss" module>
@@ -163,6 +181,8 @@ watch(isHoveringItem, () => {
 }
 
 .mainNavItem {
+  opacity: 0;
+  position: relative;
   padding-bottom: 20px;
 
   a {

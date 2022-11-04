@@ -24,7 +24,7 @@ document.addEventListener("keydown", (event: KeyboardEvent) => {
         <span></span>
       </div>
     </div>
-    <NavOverlay />
+    <NavOverlay :is-opening-popup="navMorePopupStore.isShow" />
   </div>
 </template>
 

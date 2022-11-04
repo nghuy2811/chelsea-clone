@@ -1,6 +1,6 @@
 <template>
   <header>
-    <Container>
+    <Container :child-class="$style.navSmall">
       <div :class="$style.wrapper">
         <HeaderSideBanner />
         <HeaderNav />
@@ -17,7 +17,7 @@ import HeaderNav from "./HeaderNav.vue";
 import NavMorePopup from "../Popup/NavMorePopup.vue";
 </script>
 
-<style module>
+<style lang="scss" module>
 header {
   position: relative;
 }
@@ -29,9 +29,22 @@ header::before {
   width: 100%;
   height: 4px;
   background: var(--secondary-dark-blue-c);
+
+  @include media-down(desktop) {
+    display: none;
+  }
+}
+
+.navSmall {
+  @include media-down(desktop) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
 }
 .wrapper {
-  padding-left: 20px;
-  padding-top: 4px;
+  @include media-up(desktop) {
+    padding-left: 20px;
+    padding-top: 4px;
+  }
 }
 </style>

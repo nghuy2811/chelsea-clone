@@ -42,11 +42,23 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
   height: 120px;
   margin-top: -1px;
   display: flex;
+
+  @include media-down(desktop) {
+    margin-top: 0px;
+    height: 88px;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .badge {
   width: 115px;
   height: 115px;
+
+  @include media-down(desktop) {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .main-nav {
@@ -55,10 +67,6 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
   margin-left: auto;
   display: flex;
   justify-content: end;
-
-  /* @media (max-width: 1178px) {
-    display: none;
-  } */
 
   @include media-down(desktop) {
     display: none;
@@ -98,11 +106,14 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
 }
 
 .nav-more {
-  height: 120px;
-  width: 120px;
-  background: var(--main-blue-c);
   display: flex;
   justify-content: center;
+
+  @include media-up(desktop) {
+    height: 120px;
+    width: 120px;
+    background: var(--main-blue-c);
+  }
 }
 
 .btn-more {
@@ -132,6 +143,10 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
   left: 0;
   opacity: 1;
   transition: all linear 0.2s;
+
+  @include media-down(desktop) {
+    background: var(--main-blue-c);
+  }
 }
 
 .hamburger-icon span:nth-child(1) {
@@ -172,5 +187,9 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
+
+  @include media-down(desktop) {
+    display: none;
+  }
 }
 </style>

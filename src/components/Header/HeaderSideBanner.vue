@@ -58,13 +58,17 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .sideBanner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
   border-bottom: 1px solid #ddd;
+
+  @include media-down(desktop) {
+    display: none;
+  }
 }
 
 .sideBannerLeft,
