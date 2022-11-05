@@ -1,28 +1,12 @@
-<script setup lang="ts">
-import { computed } from "vue";
-import { useNavMorePopupStore } from "../../stores/popupStores";
-
-const navMorePopupStore = useNavMorePopupStore();
-
-const isOpenMore = computed(() => {
-  return navMorePopupStore.isShow;
-});
-
-const handleClickMore = () => navMorePopupStore.togglePopup();
-</script>
-
 <template>
   <div class="wrapper">
     <div>
       <img src="/images/ChelseaBadge.webp" alt="Chelsea Badge" class="badge" />
     </div>
     <ul class="main-nav">
-      <li class="nav-item"><a href="#">LATEST</a></li>
-      <li class="nav-item"><a href="#">WATCH</a></li>
-      <li class="nav-item"><a href="#">MEN'S TEAM</a></li>
-      <li class="nav-item"><a href="#">WOMEN'S TEAM</a></li>
-      <li class="nav-item"><a href="#">TICKET & HOSTPITALITY</a></li>
-      <li class="nav-item"><a href="#">SHOP</a></li>
+      <li v-for="navItem in navMenuItems" class="nav-item">
+        <a href="#">{{ navItem.title }}</a>
+      </li>
     </ul>
     <div class="nav-more" @click="handleClickMore">
       <button class="btn-more" :class="{ isOpen: isOpenMore }">
@@ -36,6 +20,21 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { computed } from "vue";
+import { useNavMorePopupStore } from "../../stores/popupStores";
+
+import { navMenuItems } from "../../utils/staticData";
+
+const navMorePopupStore = useNavMorePopupStore();
+
+const isOpenMore = computed(() => {
+  return navMorePopupStore.isShow;
+});
+
+const handleClickMore = () => navMorePopupStore.togglePopup();
+</script>
 
 <style lang="scss" scoped>
 .wrapper {
@@ -103,6 +102,7 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
   line-height: 60px;
   font-weight: 700;
   color: var(--main-blue-c);
+  text-transform: uppercase;
 }
 
 .nav-more {

@@ -64,80 +64,14 @@
 import { ref, watch } from "vue";
 import Container from "../Container/Container.vue";
 
+import { navMoreItems } from "../../utils/staticData";
+
 const props = defineProps({
   isOpeningPopup: Boolean,
 });
 
 const hoveringIndex = ref<undefined | number>(undefined);
 const isHoveringItem = ref(false);
-const navMoreItems = [
-  {
-    title: "About the club",
-    children: [
-      "About The Club",
-      "General Information",
-      "Club Partners",
-      "Safeguarding",
-      "Careers",
-      "Contact Us",
-    ],
-  },
-  {
-    title: "Our history",
-    children: [
-      "Our History",
-      "The Story Of Chelsea",
-      "Women's Team History",
-      "Stadium History",
-      "Key Former Players",
-      "Former Managers",
-    ],
-  },
-  {
-    title: "Community",
-    children: [
-      "Community",
-      "Chelsea Foundation",
-      "No To Hate",
-      "Social Media Policy",
-    ],
-  },
-  {
-    title: "Fans",
-    children: [
-      "Fans",
-      "The 5th Stand App",
-      "Official Supporters Clubs",
-      "Junior Blues",
-      "Fans' Forum",
-      "Accessible Fans' Forum",
-      "Chelsea Pitch Owners",
-      "The Shed",
-    ],
-  },
-  {
-    title: "Stamford Bridge",
-    children: [
-      "Stamford Bridge",
-      "Getting To Stamford Bridge",
-      "Matchday Experience",
-      "Stadium Tours & Museum",
-      "Stadium Megastore",
-      "Quiet Area / Prayer Room",
-      "Lost Property",
-    ],
-  },
-  {
-    title: "Our venues",
-    children: [
-      "Our Venues",
-      "Frankie's Sports Bar & Grill",
-      "Meetings & Events at Club Chelsea",
-      "Millennium & Copthorne Hotels",
-      "Under The Bridge",
-    ],
-  },
-];
 
 const selectHoveringIndex = (index: number) => {
   isHoveringItem.value = true;
