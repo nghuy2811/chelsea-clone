@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+const props = defineProps<{
+  action: () => void;
+  hasPadding?: boolean;
+  containerClassName?: string;
+}>();
+</script>
+
 <template>
   <div
     class="button-wrapper"
@@ -6,14 +14,6 @@
     <button class="btn" @click="props.action"><slot /></button>
   </div>
 </template>
-
-<script lang="ts" setup>
-const props = defineProps<{
-  action: () => void;
-  hasPadding?: boolean;
-  containerClassName?: string;
-}>();
-</script>
 
 <style lang="scss" scoped>
 .button-wrapper {

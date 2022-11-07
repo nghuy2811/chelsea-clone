@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { useNavMorePopupStore } from "@/stores/popupStores";
+
+import NavOverlay from "@/Nav/NavOverlay.vue";
+
+const navMorePopupStore = useNavMorePopupStore();
+
+document.addEventListener("keydown", (event: KeyboardEvent) => {
+  if (navMorePopupStore.isShow && event.code === "Escape") {
+    navMorePopupStore.togglePopup();
+  }
+});
+</script>
+
 <template>
   <div
     tabindex="0"
@@ -13,20 +27,6 @@
     <NavOverlay :is-opening-popup="navMorePopupStore.isShow" />
   </div>
 </template>
-
-<script lang="ts" setup>
-import { useNavMorePopupStore } from "../../stores/popupStores";
-
-import NavOverlay from "../Nav/NavOverlay.vue";
-
-const navMorePopupStore = useNavMorePopupStore();
-
-document.addEventListener("keydown", (event: KeyboardEvent) => {
-  if (navMorePopupStore.isShow && event.code === "Escape") {
-    navMorePopupStore.togglePopup();
-  }
-});
-</script>
 
 <style lang="scss" scoped>
 .overlay {

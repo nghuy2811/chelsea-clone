@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import Container from "@/Container/Container.vue";
+import HeaderSideBanner from "./HeaderSideBanner.vue";
+import HeaderNav from "./HeaderNav.vue";
+import NavMorePopup from "@/Popup/NavMorePopup.vue";
+</script>
+
 <template>
   <header>
     <Container :child-class="$style.navSmall">
@@ -9,13 +16,6 @@
   </header>
   <NavMorePopup />
 </template>
-
-<script setup lang="ts">
-import Container from "../Container/Container.vue";
-import HeaderSideBanner from "./HeaderSideBanner.vue";
-import HeaderNav from "./HeaderNav.vue";
-import NavMorePopup from "../Popup/NavMorePopup.vue";
-</script>
 
 <style lang="scss" module>
 header {

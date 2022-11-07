@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { computed, ref } from "vue";
+import { useNavMorePopupStore } from "@/stores/popupStores";
+
+import HeaderNavExpand from "./HeaderNavExpand.vue";
+
+import { navMenuItems } from "@/utils/staticData";
+
+const currentHoveringIndex = ref<undefined | number>(undefined);
+const navMorePopupStore = useNavMorePopupStore();
+
+const isOpenMore = computed(() => {
+  return navMorePopupStore.isShow;
+});
+
+const handleClickMore = () => navMorePopupStore.togglePopup();
+</script>
+
 <template>
   <div class="wrapper">
     <div>
@@ -30,24 +48,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed, ref } from "vue";
-import { useNavMorePopupStore } from "@/stores/popupStores";
-
-import HeaderNavExpand from "./HeaderNavExpand.vue";
-
-import { navMenuItems } from "@/utils/staticData";
-
-const currentHoveringIndex = ref<undefined | number>(undefined);
-const navMorePopupStore = useNavMorePopupStore();
-
-const isOpenMore = computed(() => {
-  return navMorePopupStore.isShow;
-});
-
-const handleClickMore = () => navMorePopupStore.togglePopup();
-</script>
 
 <style lang="scss" scoped>
 .wrapper {

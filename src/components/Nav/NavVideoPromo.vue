@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import Button from "@/components/Button/Button.vue";
+
+const props = defineProps<{
+  data:
+    | {
+        url: string;
+        alt: string;
+        desc: string;
+      }
+    | undefined;
+}>();
+</script>
+
 <template>
   <div class="video-wrapper">
     <div class="thumbnail-wrapper">
@@ -16,20 +30,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import Button from "@/components/Button/Button.vue";
-
-const props = defineProps<{
-  data:
-    | {
-        url: string;
-        alt: string;
-        desc: string;
-      }
-    | undefined;
-}>();
-</script>
 
 <style lang="scss" scoped>
 .video-wrapper {

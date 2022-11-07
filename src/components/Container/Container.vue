@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+defineProps({
+  childClass: String || undefined,
+});
+</script>
+
 <template>
   <div :class="[$style['container-wrapper'], childClass]">
     <div class="container">
@@ -5,12 +11,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-defineProps({
-  childClass: String || undefined,
-});
-</script>
 
 <style lang="scss" module>
 .container-wrapper {

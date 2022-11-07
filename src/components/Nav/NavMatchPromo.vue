@@ -1,3 +1,19 @@
+<script lang="ts" setup>
+import moment from "moment";
+
+const props = defineProps<{
+  data:
+    | {
+        clubLogo: string;
+        clubName: string;
+        time: string;
+        league: string;
+        stadium: string;
+      }
+    | undefined;
+}>();
+</script>
+
 <template>
   <div class="match-wrapper">
     <div class="content">
@@ -27,22 +43,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import moment from "moment";
-
-const props = defineProps<{
-  data:
-    | {
-        clubLogo: string;
-        clubName: string;
-        time: string;
-        league: string;
-        stadium: string;
-      }
-    | undefined;
-}>();
-</script>
 
 <style scope lang="scss">
 .match-wrapper {

@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import { watch, computed } from "vue";
+
+import { NAV_MENU_TYPES } from "../../utils/constants";
+
+import type { NavSubMenuType } from "../../types/navMenu";
+import NavMatchPromo from "../Nav/NavMatchPromo.vue";
+import NavVideoPromo from "../Nav/NavVideoPromo.vue";
+import NavHospitalityPromo from "@/components/Nav/NavHospitalityPromo.vue";
+
+const props = defineProps<{
+  data?: NavSubMenuType;
+  isActive: boolean;
+}>();
+
+const isShowExpandNav = computed(() => {
+  if (props.data) return Boolean(props.data.type) && props.isActive;
+
+  return false;
+});
+</script>
+
 <template>
   <div v-if="isShowExpandNav" class="nav-expand">
     <div class="container">
@@ -32,28 +54,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { watch, computed } from "vue";
-
-import { NAV_MENU_TYPES } from "../../utils/constants";
-
-import type { NavSubMenuType } from "../../types/navMenu";
-import NavMatchPromo from "../Nav/NavMatchPromo.vue";
-import NavVideoPromo from "../Nav/NavVideoPromo.vue";
-import NavHospitalityPromo from "@/components/Nav/NavHospitalityPromo.vue";
-
-const props = defineProps<{
-  data?: NavSubMenuType;
-  isActive: boolean;
-}>();
-
-const isShowExpandNav = computed(() => {
-  if (props.data) return Boolean(props.data.type) && props.isActive;
-
-  return false;
-});
-</script>
 
 <style scoped>
 .nav-expand {

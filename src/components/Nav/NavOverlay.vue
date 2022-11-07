@@ -1,3 +1,37 @@
+<script lang="ts" setup>
+import { ref, watch } from "vue";
+import Container from "../Container/Container.vue";
+
+import { navMoreItems } from "../../utils/staticData";
+
+const props = defineProps({
+  isOpeningPopup: Boolean,
+});
+
+const hoveringIndex = ref<undefined | number>(undefined);
+const isHoveringItem = ref(false);
+
+const selectHoveringIndex = (index: number) => {
+  isHoveringItem.value = true;
+  hoveringIndex.value = index;
+};
+
+watch([isHoveringItem], () => {
+  if (isHoveringItem.value === false) {
+    hoveringIndex.value = undefined;
+  }
+});
+
+watch(
+  () => props.isOpeningPopup,
+  () => {
+    if (props.isOpeningPopup === false) {
+      hoveringIndex.value = undefined;
+    }
+  }
+);
+</script>
+
 <template>
   <Container>
     <div :class="$style.wrapper">
@@ -59,40 +93,6 @@
     </div>
   </Container>
 </template>
-
-<script lang="ts" setup>
-import { ref, watch } from "vue";
-import Container from "../Container/Container.vue";
-
-import { navMoreItems } from "../../utils/staticData";
-
-const props = defineProps({
-  isOpeningPopup: Boolean,
-});
-
-const hoveringIndex = ref<undefined | number>(undefined);
-const isHoveringItem = ref(false);
-
-const selectHoveringIndex = (index: number) => {
-  isHoveringItem.value = true;
-  hoveringIndex.value = index;
-};
-
-watch([isHoveringItem], () => {
-  if (isHoveringItem.value === false) {
-    hoveringIndex.value = undefined;
-  }
-});
-
-watch(
-  () => props.isOpeningPopup,
-  () => {
-    if (props.isOpeningPopup === false) {
-      hoveringIndex.value = undefined;
-    }
-  }
-);
-</script>
 
 <style lang="scss" module>
 .wrapper {
