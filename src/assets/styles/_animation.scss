@@ -34,10 +34,12 @@
   }
 }
 
-@mixin animateSlideInTop($delay) {
-  animation: slideInTop 0.2s ease-in-out $delay forwards;
-}
+@keyframes fadeIamge {
+  from {
+    opacity: 0;
+  }
 
-@mixin animateSlideInTopShort($delay) {
-  animation: slideInTop 0.2s ease-in-out $delay forwards;
+  to {
+    opacity: 1;
+  }
 }

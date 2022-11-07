@@ -135,8 +135,7 @@ export const navMenuItems: NavMenuType[] = [
         },
       ],
       match: {
-        clubLogo:
-          "https://clublogos.stadion.io/assets/ClubLogos/Football/English/602.png",
+        clubLogo: "/svg/arsenal.svg",
         clubName: "Arsenal",
         time: "2022-11-06T12:00:00Z",
         league: "Premier League",

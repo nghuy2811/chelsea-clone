@@ -2,7 +2,7 @@
   <div v-if="isShowExpandNav" class="nav-expand">
     <div class="container">
       <div class="content-wrapper">
-        <ul>
+        <ul class="main-nav">
           <li
             v-for="(item, index) in data?.links"
             class="nav-item"
@@ -17,10 +17,10 @@
         </ul>
         <div class="nav-extra">
           <div v-if="data?.type === NAV_MENU_TYPES.promoTicket && data.match">
-            <NavMatchPromo />
+            <NavMatchPromo :data="data.match" />
           </div>
           <div v-if="data?.type === NAV_MENU_TYPES.promoVideo && data.video">
-            <NavVideoPromo />
+            <NavVideoPromo :data="data.video" />
           </div>
           <div
             v-if="data?.type === NAV_MENU_TYPES.hospitality && data.hospitality"
@@ -65,8 +65,13 @@ const isShowExpandNav = computed(() => {
 }
 
 .content-wrapper {
+  display: flex;
+}
+
+.main-nav {
   padding: 94px 0;
   margin-left: calc((1 / 12) * 100%);
+  flex: 1;
 }
 
 .nav-item {
