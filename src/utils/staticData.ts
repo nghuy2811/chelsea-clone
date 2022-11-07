@@ -178,7 +178,7 @@ export const navMenuItems: NavMenuType[] = [
   {
     title: "Ticket & Hospitality",
     subMenu: {
-      type: NAV_MENU_TYPES.megaPopup,
+      type: NAV_MENU_TYPES.hospitality,
       links: [
         {
           title: "Buy Tickets",
@@ -199,7 +199,7 @@ export const navMenuItems: NavMenuType[] = [
           title: "My Tickets Account",
         },
       ],
-      mega: [
+      hospitality: [
         {
           title: "Buy Hospitality Tickets",
         },

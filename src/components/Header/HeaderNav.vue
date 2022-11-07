@@ -4,8 +4,18 @@
       <img src="/images/ChelseaBadge.webp" alt="Chelsea Badge" class="badge" />
     </div>
     <ul class="main-nav">
-      <li v-for="navItem in navMenuItems" class="nav-item">
-        <a href="#">{{ navItem.title }}</a>
+      <li
+        v-for="(navItem, index) in navMenuItems"
+        @mouseover="currentHoveringIndex = index"
+        @mouseleave="currentHoveringIndex = undefined"
+      >
+        <div class="nav-item">
+          <a href="#">{{ navItem.title }}</a>
+        </div>
+        <HeaderNavExpand
+          :data="navItem.subMenu"
+          :is-active="currentHoveringIndex === index"
+        />
       </li>
     </ul>
     <div class="nav-more" @click="handleClickMore">
@@ -22,11 +32,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useNavMorePopupStore } from "../../stores/popupStores";
+
+import HeaderNavExpand from "./HeaderNavExpand.vue";
 
 import { navMenuItems } from "../../utils/staticData";
 
+const currentHoveringIndex = ref<undefined | number>(undefined);
 const navMorePopupStore = useNavMorePopupStore();
 
 const isOpenMore = computed(() => {
@@ -72,25 +85,25 @@ const handleClickMore = () => navMorePopupStore.togglePopup();
   }
 }
 
-.main-nav li {
+.nav-item {
   height: 100%;
   position: relative;
-}
 
-.main-nav li::after {
-  content: "";
-  position: absolute;
-  bottom: 0%;
-  width: 100%;
-  height: 5px;
-  background: var(--main-blue-c);
-  display: block;
-  opacity: 0;
-  transition: all 0.2s;
-}
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 5px;
+    background: var(--main-blue-c);
+    display: block;
+    opacity: 0;
+    transition: all 0.2s;
+  }
 
-.main-nav li:hover::after {
-  opacity: 1;
+  &:hover::after {
+    opacity: 1;
+  }
 }
 
 .main-nav li a {
