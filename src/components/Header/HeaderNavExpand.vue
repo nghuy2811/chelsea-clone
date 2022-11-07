@@ -25,7 +25,7 @@
           <div
             v-if="data?.type === NAV_MENU_TYPES.hospitality && data.hospitality"
           >
-            <NavMatchPromo />
+            <NavHospitalityPromo />
           </div>
         </div>
       </div>
@@ -39,9 +39,9 @@ import { watch, computed } from "vue";
 import { NAV_MENU_TYPES } from "../../utils/constants";
 
 import type { NavSubMenuType } from "../../types/navMenu";
-import NavHospitalityPromo from "../Nav/NavHospitalityPromo.vue";
 import NavMatchPromo from "../Nav/NavMatchPromo.vue";
 import NavVideoPromo from "../Nav/NavVideoPromo.vue";
+import NavHospitalityPromo from "@/components/Nav/NavHospitalityPromo.vue";
 
 const props = defineProps<{
   data?: NavSubMenuType;

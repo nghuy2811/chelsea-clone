@@ -33,11 +33,11 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useNavMorePopupStore } from "../../stores/popupStores";
+import { useNavMorePopupStore } from "@/stores/popupStores";
 
 import HeaderNavExpand from "./HeaderNavExpand.vue";
 
-import { navMenuItems } from "../../utils/staticData";
+import { navMenuItems } from "@/utils/staticData";
 
 const currentHoveringIndex = ref<undefined | number>(undefined);
 const navMorePopupStore = useNavMorePopupStore();
