@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Container from "@/Container/Container.vue";
+import Container from "@/components/Container";
 import HeaderSideBanner from "./HeaderSideBanner.vue";
 import HeaderNav from "./HeaderNav.vue";
-import NavMorePopup from "@/Popup/NavMorePopup.vue";
+import { NavMorePopup } from "@/components/Popup";
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useNavMorePopupStore } from "@/stores/popupStores";
 
-import NavOverlay from "@/Nav/NavOverlay.vue";
+import NavOverlay from "@/components/Nav/NavOverlay.vue";
 
 const navMorePopupStore = useNavMorePopupStore();
 

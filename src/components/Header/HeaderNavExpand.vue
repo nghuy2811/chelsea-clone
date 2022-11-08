@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { watch, computed } from "vue";
 
-import { NAV_MENU_TYPES } from "../../utils/constants";
+import { NAV_MENU_TYPES } from "@/utils/constants";
 
-import type { NavSubMenuType } from "../../types/navMenu";
-import NavMatchPromo from "../Nav/NavMatchPromo.vue";
-import NavVideoPromo from "../Nav/NavVideoPromo.vue";
-import NavHospitalityPromo from "@/components/Nav/NavHospitalityPromo.vue";
+import type { NavSubMenuType } from "@/types/navMenu";
+import {
+  NavMatchPromo,
+  NavVideoPromo,
+  NavHospitalityPromo,
+} from "@/components/Nav";
 
 const props = defineProps<{
   data?: NavSubMenuType;

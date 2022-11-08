@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import Container from "../Container/Container.vue";
+import Container from "@/components/Container";
 
-import { navMoreItems } from "../../utils/staticData";
+import { navMoreItems } from "@/utils/staticData";
 
 const props = defineProps({
   isOpeningPopup: Boolean,

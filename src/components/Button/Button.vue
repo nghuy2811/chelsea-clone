@@ -2,7 +2,6 @@
 const props = defineProps<{
   action: () => void;
   hasPadding?: boolean;
-  containerClassName?: string;
 }>();
 </script>
 
